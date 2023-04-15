@@ -3,11 +3,11 @@
 #include <math.h>
 
 #define pi 3.141592653589793
-#define N_t 1000				//Number of trajectories
-#define N 100					//Number of layers
-#define lambda 5				//Mean free path (unspecified)
-#define P_abs 0.1				//Absorption probability
-#define eps 6.0				//Screening coefficient
+#define N_t 1000				// Number of trajectories
+#define N 100					// Number of layers
+#define lambda 5				// Mean free path (unspecified)
+#define P_abs 0.1				// Absorption probability
+#define eps 6.0					// Screening coefficient
 #define OPTION 1
 
 /**
@@ -29,16 +29,16 @@ int BACKWARD;
 int BACKSCATTERED;
 int NEWLAYER;
 
-//step-length, interaction probability, horizontal displacement, depth, direction angle, cosine value of new angular displacement
+// step-length, interaction probability, horizontal displacement, depth, direction angle, cosine value of new angular displacement
 double s, I, x, z, theta, cth_new;
 
-//random number in range (0,1)
+// random number in (0,1)
 double rnd()
 {
 	return (double) rand()/RAND_MAX;
 }
 
-//angular conversion tools
+// angle unit conversion 
 double toRad(double x)
 {
 	return x*pi/180;
@@ -48,7 +48,7 @@ double toDeg(double x)
 	return x*180/pi;
 }
 
-//initial conditions
+// initial conditions
 void initialize()
 {
 	ABSORBED = 0;
@@ -61,7 +61,7 @@ void initialize()
 	z = 0;
 }
 
-//direction switch
+// invert direction 
 void invertDirection()
 {
 	if (!BACKWARD)
@@ -70,7 +70,7 @@ void invertDirection()
 		BACKWARD = 0; 
 }
 
-//sets all elements to zero
+// set all elements to zero
 void zeroArray(int *a, int lengthOfArray) 
 {
 	int i;
@@ -99,7 +99,7 @@ void interaction()
 	}
 }
 
-//particle step
+// particle step
 void singleStep() 
 {
 	double R, delta;
@@ -174,7 +174,7 @@ int main()
 			if (ABSORBED)
 				absorbed[j]++;
 			if (z == N - 1)
-				break;			//END OF THE ROAD		
+				break;			// END OF THE ROAD		
 		}
 		fprintf(trk, "\n");
 	}
@@ -196,35 +196,4 @@ int main()
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
 
